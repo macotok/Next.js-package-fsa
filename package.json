@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:scss": "stylelint \"./src/**/*.scss\""
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,10 @@
     "eslint-plugin-react": "^7.20.0",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-scss": "^3.18.0",
     "typescript": "^3.9.5"
   },
   "husky": {
