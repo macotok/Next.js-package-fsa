@@ -1,5 +1,5 @@
 {
-  "name": "Next.js-package-fsa",
+  "name": "next.js-package-with-fsa",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint:scss": "stylelint \"./src/**/*.scss\""
+    "lint:scss": "stylelint \"./src/**/*.scss\"",
+    "lint:es": "eslint \"./src/**/*.{ts,tsx,js}\""
   },
   "repository": {
     "type": "git",

@@ -29,5 +29,10 @@
   "ignorePatterns": ["next.config.js"],
   "globals": {
     "React": "writable"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
