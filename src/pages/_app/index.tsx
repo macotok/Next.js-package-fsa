@@ -2,9 +2,10 @@ import 'ress';
 
 import { AppProps } from 'next/app';
 import { NextPage } from 'next';
+import { wrapper } from '../../store';
 
-const App: NextPage<AppProps> = ({ Component, pageProps }) => (
+const WrapperApp: NextPage<AppProps> = ({ Component, pageProps }) => (
   <Component {...pageProps} />
 );
 
-export default App;
+export default wrapper.withRedux(WrapperApp);
