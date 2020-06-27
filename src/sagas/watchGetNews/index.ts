@@ -2,8 +2,8 @@ import { SagaIterator } from 'redux-saga';
 import { call, fork, take } from 'redux-saga/effects';
 import { AxiosResponse } from 'axios';
 import { bindAsyncAction } from 'typescript-fsa-redux-saga';
-import getNews from '../../api';
-import getNewsAction, { GetNewsResultType } from '../../actions/getNews';
+import getNews from '@/api';
+import getNewsAction, { GetNewsResultType } from '@/actions/getNews';
 
 const getNewsWorker = bindAsyncAction(getNewsAction, {
   skipStartedAction: true,

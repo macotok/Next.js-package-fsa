@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { END } from 'redux-saga';
-import { NewsStateType } from '../reducers/news';
-import { wrapper, SagaStoreType } from '../store';
-import getNewsAction from '../actions/getNews';
+import { NewsStateType } from '@/reducers/news';
+import { wrapper, SagaStoreType } from '@/store';
+import getNewsAction from '@/actions/getNews';
 
 type NewsPagePropsType = {
   news: NewsStateType;
@@ -17,11 +17,14 @@ const HomePage: FC<NewsPagePropsType> = ({ news }) => {
     <>
       <div>Welcome to Next.js!</div>
       {contents.map(
-        ({ title, description }: { title: string; description: string }) => (
-          <>
+        (
+          { title, description }: { title: string; description: string },
+          index
+        ) => (
+          <div key={index}>
             <p>{title}</p>
             <div dangerouslySetInnerHTML={{ __html: description }} />
-          </>
+          </div>
         )
       )}
     </>

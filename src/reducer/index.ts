@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import news, { NewsStateType } from '../reducers/news';
+import news, { NewsStateType } from '@/reducers/news';
 
 export type StateType = {
   news: NewsStateType;
