@@ -33,10 +33,7 @@ const news = (
       payload: { news },
     } = action;
 
-    return {
-      ...state,
-      ...news,
-    };
+    return Object.assign({}, state, news);
   }
 
   if (isType(action, getNewsAction.done)) {
@@ -44,21 +41,17 @@ const news = (
       payload: { result },
     } = action;
 
-    return {
-      ...state,
-      ...result,
-    };
+    return Object.assign({}, state, { result });
   }
 
   if (isType(action, getNewsAction.failed)) {
     const {
-      payload: { error },
+      payload: {
+        error: { message },
+      },
     } = action;
 
-    return {
-      ...state,
-      ...error,
-    };
+    return Object.assign({}, state, { error: { message } });
   }
 
   return state;
