@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { NextPage } from 'next';
 import { END } from 'redux-saga';
 import { NewsStateType } from '@/reducers/news';
 import { wrapper, SagaStoreType } from '@/store';
@@ -8,7 +9,7 @@ type NewsPagePropsType = {
   news: NewsStateType;
 };
 
-const HomePage: FC<NewsPagePropsType> = ({ news }) => {
+const HomePage: NextPage<NewsPagePropsType> = ({ news }) => {
   const {
     result: { contents },
   } = news;
