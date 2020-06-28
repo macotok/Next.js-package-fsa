@@ -2,6 +2,12 @@
   "extends": ["stylelint-config-recommended", "stylelint-config-prettier"],
   "plugins": ["stylelint-scss"],
   "rules": {
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "local"]
+      }
+    ]
   }
 }
