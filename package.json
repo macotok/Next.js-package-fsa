@@ -38,7 +38,8 @@
     "sass-mq": "5.0.1",
     "typescript": "3.9.5",
     "typescript-fsa": "3.0.0",
-    "typescript-fsa-redux-saga": "2.0.0"
+    "typescript-fsa-redux-saga": "2.0.0",
+    "uuid": "8.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "9.0.1",
