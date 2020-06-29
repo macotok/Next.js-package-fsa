@@ -5,6 +5,11 @@
 - typescript-fsa
 - typescript-fsa-redux-saga
 
+## Components
+
+- WebLink
+- Image
+
 ## Linter
 
 - ESLint
