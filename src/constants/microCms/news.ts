@@ -1,6 +1,6 @@
-import { MicroCmsResponseModelType } from '@/constants/microCms/base';
+import { MicroCmsResponseDefaultType } from '@/constants/microCms/base';
 
-export interface NewsContentsType extends MicroCmsResponseModelType {
+export interface NewsContentsType extends MicroCmsResponseDefaultType {
   title: string;
   description: string;
 }

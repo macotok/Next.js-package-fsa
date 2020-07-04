@@ -14,14 +14,13 @@ export type MicroCmsManyResponseType<T> = {
   totalCount: number;
 };
 
-export type MicroCmsResponseModelType = {
+export type MicroCmsHeaderObjectType = {
+  xCurrentDateTime: string;
+};
+
+export type MicroCmsResponseDefaultType = {
   id: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  header?: MicroCmsResponseHeaderType;
-};
-
-export type MicroCmsResponseHeaderType = {
-  xCurrentDateTime: string;
 };

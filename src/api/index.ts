@@ -11,11 +11,13 @@ const instance = axios.create({
   timeout: 1000,
 });
 
-const getNews = (params: MicroCmsQueryType): AxiosPromise<GetNewsResultType> =>
+export type GetNewsDataType = GetNewsResultType;
+
+export const getNews = (
+  params: MicroCmsQueryType
+): AxiosPromise<GetNewsDataType> =>
   instance({
     params,
     method: 'GET',
     url: 'news',
   });
-
-export default getNews;
