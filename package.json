@@ -26,6 +26,7 @@
     "@material-ui/icons": "4.9.1",
     "@material-ui/lab": "4.0.0-alpha.56",
     "axios": "0.19.2",
+    "dayjs": "1.8.29",
     "next": "9.4.4",
     "next-redux-wrapper": "6.0.2",
     "react": "16.13.1",

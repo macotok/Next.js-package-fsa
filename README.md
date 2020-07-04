@@ -29,3 +29,5 @@
 
 - pre-commit
 - GitHub CI
+- dayjs
+- LazyLoad
