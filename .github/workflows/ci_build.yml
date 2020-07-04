@@ -1,4 +1,4 @@
-name: ci stylelint
+name: ci lint and build
 
 on:
   push:
@@ -9,7 +9,8 @@ on:
       - master
 
 jobs:
-  build:
+  build_job:
+    name: lint and build
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,12 +18,19 @@ jobs:
         node-version: [10]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, stylelint
-        run: |
-          npm i
-          npm run lint:scss
+      - name: npm install
+        run: npm i
+
+      - name: esLint
+        run: npm run lint:es
+
+      - name: styleLint
+        run: npm run lint:scss
+
+      - name: build
+        run: npm run build
