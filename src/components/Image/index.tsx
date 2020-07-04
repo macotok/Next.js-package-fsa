@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react';
+import LazyLoad from 'react-lazyload';
 import SvgImage from '@/components/Image/SvgImage';
 import { isNotSupportObjectFit } from '@/constants/detector';
 
@@ -35,7 +36,22 @@ const Image: FC<ImagePropsType> = ({
     );
   }
 
-  return <img src={src} alt={alt} className={className} />;
+  const ImageComponent: FC = useMemo(
+    () => () => <img src={src} alt={alt} className={className} />,
+    [src, alt, className]
+  );
+
+  return (
+    <>
+      <LazyLoad>
+        <ImageComponent />
+      </LazyLoad>
+      <noscript>
+        <style>{`.lazyload-placeholder { display: none; }`}</style>
+        <ImageComponent />
+      </noscript>
+    </>
+  );
 };
 
 export default Image;

@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
+import LazyLoad from 'react-lazyload';
 import { v4 } from 'uuid';
 
 type SvgImagePropsType = {
@@ -39,31 +40,56 @@ const SvgImage: FC<SvgImagePropsType> = ({
     return undefined;
   }, [objectFit]);
 
+  const SvgImageComponent: FC = useMemo(
+    () => () => (
+      <svg key={src} className={className}>
+        <defs>
+          <filter id={imageId}>
+            {isBlur && <feGaussianBlur in="SourceGraphic" stdDeviation="6" />}
+            {isGrayScale && (
+              <feColorMatrix
+                type="matrix"
+                values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"
+              />
+            )}
+          </filter>
+        </defs>
+        <image
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          externalResourcesRequired="true"
+          preserveAspectRatio={aspectRatio}
+          xlinkHref={showSrc}
+          filter={filter}
+          onError={onError}
+        />
+      </svg>
+    ),
+    [
+      src,
+      className,
+      aspectRatio,
+      showSrc,
+      filter,
+      onError,
+      imageId,
+      isBlur,
+      isGrayScale,
+    ]
+  );
+
   return (
-    <svg key={src} className={className}>
-      <defs>
-        <filter id={imageId}>
-          {isBlur && <feGaussianBlur in="SourceGraphic" stdDeviation="6" />}
-          {isGrayScale && (
-            <feColorMatrix
-              type="matrix"
-              values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"
-            />
-          )}
-        </filter>
-      </defs>
-      <image
-        x="0"
-        y="0"
-        width="100%"
-        height="100%"
-        externalResourcesRequired="true"
-        preserveAspectRatio={aspectRatio}
-        xlinkHref={showSrc}
-        filter={filter}
-        onError={onError}
-      />
-    </svg>
+    <>
+      <LazyLoad>
+        <SvgImageComponent />
+      </LazyLoad>
+      <noscript>
+        <style>{`.lazyload-placeholder { display: none; }`}</style>
+        <SvgImageComponent />
+      </noscript>
+    </>
   );
 };
 
