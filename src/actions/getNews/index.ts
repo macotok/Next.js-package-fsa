@@ -1,30 +1,12 @@
 import { AxiosError } from 'axios';
 import actionCreatorFactory from 'typescript-fsa';
+import {
+  MicroCmsQueryType,
+  MicroCmsManyResponseType,
+} from '@/constants/microCms/base';
+import { NewsContentsType } from '@/constants/microCms/news';
 
-export type MicroCmsQueryType = {
-  draftKey?: string;
-  limit?: number;
-  offset?: number;
-  fields?: string;
-  filters?: string;
-  depth?: number;
-};
-
-type NewsContentsType = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  title: string;
-  description: string;
-};
-
-export type GetNewsResultType = {
-  contents: NewsContentsType[];
-  limit: number;
-  offset: number;
-  totalCount: number;
-};
+export type GetNewsResultType = MicroCmsManyResponseType<NewsContentsType>;
 
 export type GetNewsError = AxiosError;
 

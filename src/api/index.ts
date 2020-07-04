@@ -1,5 +1,6 @@
 import axios, { AxiosPromise } from 'axios';
-import { MicroCmsQueryType, GetNewsResultType } from '@/actions/getNews/';
+import { GetNewsResultType } from '@/actions/getNews/';
+import { MicroCmsQueryType } from '@/constants/microCms/base';
 
 const instance = axios.create({
   baseURL: process.env.API_MICRO_CMS_URL,
