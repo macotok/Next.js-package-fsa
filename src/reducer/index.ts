@@ -1,5 +1,5 @@
-import { CombinedState, combineReducers } from 'redux';
-import { Action } from 'typescript-fsa';
+import { Action, CombinedState, combineReducers } from 'redux';
+import { Action as TypeScriptFsaAction } from 'typescript-fsa';
 import { HYDRATE } from 'next-redux-wrapper';
 import news, { NewsStateType } from '@/reducers/news';
 
@@ -11,11 +11,13 @@ const combinedReducer = combineReducers<StateType>({
   news,
 });
 
+type ReducerAction<T> = Action<T> | TypeScriptFsaAction<T>;
+
 const reducer = (
   state: StateType,
-  action: Action<StateType>
+  action: ReducerAction<StateType>
 ): CombinedState<StateType> => {
-  if (action.type === HYDRATE) {
+  if (action.type === HYDRATE && 'payload' in action) {
     return {
       ...state,
       ...action.payload,
