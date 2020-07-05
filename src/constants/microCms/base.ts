@@ -18,7 +18,7 @@ export type MicroCmsHeaderObjectType = {
   xCurrentDateTime: string;
 };
 
-export type MicroCmsResponseDefaultType = {
+export type MicroCmsModelDefaultType = {
   id: string;
   createdAt: string;
   updatedAt: string;
