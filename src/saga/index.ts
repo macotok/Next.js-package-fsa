@@ -1,4 +1,5 @@
 import { all, fork } from 'redux-saga/effects';
+
 import watchGetNews from '@/sagas/watchGetNews';
 
 function* saga() {

@@ -1,10 +1,11 @@
-import { AxiosError } from 'axios';
-import actionCreatorFactory from 'typescript-fsa';
 import {
-  MicroCmsQueryType,
   MicroCmsManyResponseType,
+  MicroCmsQueryType,
 } from '@/constants/microCms/base';
+
+import { AxiosError } from 'axios';
 import { NewsContentsType } from '@/constants/microCms/news';
+import actionCreatorFactory from 'typescript-fsa';
 
 export type GetNewsResultType = MicroCmsManyResponseType<NewsContentsType>;
 

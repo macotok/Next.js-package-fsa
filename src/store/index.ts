@@ -2,6 +2,7 @@ import { MakeStore, createWrapper } from 'next-redux-wrapper';
 import { Store, applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware, { Task } from 'redux-saga';
 import reducer, { StateType } from '@/reducer';
+
 import saga from '@/saga';
 
 export type SagaStoreType = Store & {

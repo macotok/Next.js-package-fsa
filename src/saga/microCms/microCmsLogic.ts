@@ -2,9 +2,10 @@ import {
   MicroCmsHeaderObjectType,
   MicroCmsQueryType,
 } from '@/constants/microCms/base';
+import { call, take } from 'redux-saga/effects';
+
 import { AsyncActionCreators } from 'typescript-fsa/src/index';
 import { SagaIterator } from 'redux-saga';
-import { fork, take } from 'redux-saga/effects';
 
 export const convertHeaderObject = (header: {
   [key: string]: string;
@@ -27,7 +28,7 @@ export const getSagaIterator = <ApiResponse, Result, Error>(
       );
 
       try {
-        yield fork(worker, payload);
+        yield call(worker, payload);
       } catch (e) {
         console.error(e);
       }

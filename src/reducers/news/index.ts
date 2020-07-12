@@ -1,7 +1,8 @@
 import { Action, isType } from 'typescript-fsa';
+import getNewsAction, { GetNewsResultType } from '@/actions/getNews';
+
 import { HYDRATE } from 'next-redux-wrapper';
 import { StateType } from '@/reducer';
-import getNewsAction, { GetNewsResultType } from '@/actions/getNews';
 
 export type NewsStateType = {
   error: {

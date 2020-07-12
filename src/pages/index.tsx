@@ -1,8 +1,9 @@
-import React from 'react';
-import { NextPage } from 'next';
+import { SagaStoreType, wrapper } from '@/store';
+
 import { END } from 'redux-saga';
 import { NewsStateType } from '@/reducers/news';
-import { wrapper, SagaStoreType } from '@/store';
+import { NextPage } from 'next';
+import React from 'react';
 import getNewsAction from '@/actions/getNews';
 
 type NewsPagePropsType = {

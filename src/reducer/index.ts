@@ -1,7 +1,8 @@
 import { Action, CombinedState, combineReducers } from 'redux';
-import { Action as TypeScriptFsaAction } from 'typescript-fsa';
-import { HYDRATE } from 'next-redux-wrapper';
 import news, { NewsStateType } from '@/reducers/news';
+
+import { HYDRATE } from 'next-redux-wrapper';
+import { Action as TypeScriptFsaAction } from 'typescript-fsa';
 
 export type StateType = {
   news: NewsStateType;

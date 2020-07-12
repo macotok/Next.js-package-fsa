@@ -1,4 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
+
 import { GetNewsResultType } from '@/actions/getNews/';
 import { MicroCmsQueryType } from '@/constants/microCms/base';
 

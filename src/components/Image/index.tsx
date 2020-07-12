@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react';
+
 import LazyLoad from 'react-lazyload';
 import SvgImage from '@/components/Image/SvgImage';
 import { isNotSupportObjectFit } from '@/constants/detector';
@@ -24,7 +25,7 @@ const Image: FC<ImagePropsType> = ({
     return isNotSupportObjectFit();
   }, []);
 
-  if (isNotSupport) {
+  if (objectFit && isNotSupport) {
     return (
       <SvgImage
         src={src}

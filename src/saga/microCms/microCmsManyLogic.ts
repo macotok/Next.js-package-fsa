@@ -1,8 +1,4 @@
-import { SagaIterator } from 'redux-saga';
-import { call } from 'redux-saga/effects';
 import { AxiosPromise, AxiosResponse } from 'axios';
-import { AsyncActionCreators } from 'typescript-fsa/src/index';
-import { bindAsyncAction } from 'typescript-fsa-redux-saga';
 import {
   MicroCmsHeaderObjectType,
   MicroCmsManyResponseType,
@@ -13,6 +9,11 @@ import {
   convertHeaderObject,
   getSagaIterator,
 } from '@/saga/microCms/microCmsLogic';
+
+import { AsyncActionCreators } from 'typescript-fsa/src/index';
+import { SagaIterator } from 'redux-saga';
+import { bindAsyncAction } from 'typescript-fsa-redux-saga';
+import { call } from 'redux-saga/effects';
 
 type ManyRequestType<T> = (params: MicroCmsQueryType) => AxiosPromise<T>;
 
